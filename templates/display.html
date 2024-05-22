@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display History</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .history {
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .history-item {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="history">
+    <h2>History</h2>
+    <div id="historyItems">
+        <!-- History items will be dynamically added here -->
+    </div>
+</div>
+
+<script>
+    // Simulated data for demonstration
+    var historyData = ["Item 1", "Item 2", "Item 3"];
+
+    // Populate history from data
+    var historyItemsDiv = document.getElementById('historyItems');
+    historyData.forEach(function(itemText) {
+        var newItem = document.createElement('div');
+        newItem.setAttribute('class', 'history-item');
+        newItem.textContent = itemText;
+        historyItemsDiv.appendChild(newItem);
+    });
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>History</h2>
+
+<div id="itemList">
+    <!-- Items will be dynamically added here -->
+</div>
+
+<script>
+    // Load items from local storage when the page loads
+    window.onload = function() {
+        var items = JSON.parse(localStorage.getItem('items')) || [];
+        var itemList = document.getElementById('itemList');
+        items.forEach(function(item) {
+            var listItem = document.createElement('div');
+            listItem.textContent = item;
+            itemList.appendChild(listItem);
+        });
+    };
+</script>
+
+</body>
+</html>
